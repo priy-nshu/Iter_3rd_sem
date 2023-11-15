@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+    $(document).ready(function(){
+    $("p").on({
+        mouseenter:function()
+    {
+        $(this).css("background-color","blue");
+    },
+    mouseleave:function(){
+        $(this).css("background-color","yellow");
+    },
+    click:function(){
+        $(this).css("background-color","cyan");
+    },
+    dblclick:function(){
+        $(this).css("background-color","red")
+    }
+        });
+    });
+        </script>
+</head>
+<body>
+    <p>hover over this</p>
+    
+</body>
+</html>

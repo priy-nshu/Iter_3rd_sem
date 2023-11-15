@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+    $(document).ready(function(){
+    $("button").click(function(){
+    $("#div1").fadeIn();
+    $("#div2").fadeIn("slow");
+    $("#div3").fadeIn(100);
+        });
+    });
+        </script>
+</head>
+<body>
+    <p >This is para</p>
+    
+    <button>fade in</button><br>
+    <div id="div1">This is another</div>
+    <div id="div2">This is another</div>
+    <div id="div3">This is another</div>
+</body>
+</html>
