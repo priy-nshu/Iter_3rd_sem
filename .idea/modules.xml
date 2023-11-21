@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Iter_3rd_sem.iml" filepath="$PROJECT_DIR$/.idea/Iter_3rd_sem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ad/adLab6/adLab6.iml" filepath="$PROJECT_DIR$/ad/adLab6/adLab6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ad/sum/sum.iml" filepath="$PROJECT_DIR$/ad/sum/sum.iml" />
+    </modules>
+  </component>
+</project>
