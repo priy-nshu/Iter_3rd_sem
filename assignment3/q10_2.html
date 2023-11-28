@@ -1,0 +1,47 @@
+<!-- about.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <h1>About Us</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section>
+    <h2>Our Team</h2>
+    <div class="team-member" id="member1">
+        <h3>Team Member 1</h3>
+        <p>This is the description for Team Member 1.</p>
+        <span class="expand-btn" onclick="toggleDetails('member1')">+</span>
+    </div>
+    <div class="team-member" id="member2">
+        <h3>Team Member 2</h3>
+        <p>This is the description for Team Member 2.</p>
+        <span class="expand-btn" onclick="toggleDetails('member2')">+</span>
+    </div>
+</section>
+
+<script>
+    function toggleDetails(memberId) {
+        const member = document.getElementById(memberId);
+        const expandBtn = member.querySelector('.expand-btn');
+        const expanded = member.classList.toggle('expanded');
+        expandBtn.textContent = expanded ? '-' : '+';
+    }
+</script>
+
+</body>
+</html>
