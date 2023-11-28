@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click and Double-Click Events</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+<p id="clickMe">Click me!</p>
+<p id="click">click me twice!</p>
+<script>
+    $(document).ready(function () {
+
+        $("#clickMe").click(function () {
+            alert("You clicked me!");
+        });
+
+        $("#click").dblclick(function () {
+            alert("You double-clicked me!");
+        });
+    });
+</script>
+
+</body>
+</html>

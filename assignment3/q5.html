@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Methods Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        /* Styles for demonstration purposes */
+        #demoDiv {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            margin: 20px;
+            text-align: center;
+            line-height: 200px;
+            display: none; /* Initially hidden */
+        }
+    </style>
+</head>
+<body>
+
+<div id="demoDiv">Hello, jQuery!</div>
+
+<script>
+    $(document).ready(function () {
+        $("#demoDiv").slideDown(2000, function () {
+            console.log("slideDown animation completed");
+        });
+
+        $("#demoDiv").animate({
+            width: "300px",
+            height: "300px",
+            marginLeft: "50px"
+        }, 2000, function () {
+    
+            console.log("animate function completed");
+        });
+
+        $("#demoDiv").fadeIn(2000, function () {
+
+            console.log("fadeIn animation completed");
+        });
+
+        $("#demoDiv").hide(2000, function () {
+            console.log("hide animation completed");
+        });
+
+        $("#demoDiv").show(2000, function () {
+            console.log("show animation completed");
+        });
+
+        $("#demoDiv").mouseenter(function () {
+            alert("Mouse entered the div!");
+        });
+
+        $("#demoDiv").dblclick(function () {
+            alert("Double-clicked the div!");
+        });
+
+        $("#demoDiv").mouseleave(function () {
+            alert("Mouse left the div!");
+        });
+
+        $("#demoDiv").attr("title", "jQuery Demo");
+
+        $("#demoDiv").html("New Content!");
+    });
+</script>
+
+</body>
+</html>

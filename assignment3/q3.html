@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blur Event</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+<input type="text" id="field1" placeholder="Field 1">
+
+<script>
+    $(document).ready(function(){
+    $("#field1").focus(function(){
+    $(this).css("background-color","grey");
+        });
+    });
+    $(document).ready(function () {
+        $("#field1").blur(function () {
+            alert("Field 1 lost focus!");
+        });
+    });
+</script>
+
+</body>
+</html>

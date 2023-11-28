@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Manipulation</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<table id="myTable">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>John</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Jane</td>
+        </tr>
+    </tbody>
+</table>
+
+<button id="addRowBtn">Add Row</button>
+
+<input type="text" id="removeId" placeholder="Enter ID">
+<button id="removeByIdBtn">Remove by ID</button>
+
+<script>
+    var rowCounter = 2;
+
+    $("#addRowBtn").click(function () {
+        rowCounter++;
+        var newRow = "<tr><td>" + rowCounter + "</td><td>New Name</td></tr>";
+        $("#myTable tbody").append(newRow);
+        $(this).css("color", "red");
+    });
+
+    $("#removeByIdBtn").click(function () {
+        var idToRemove = $("#removeId").val();
+        $("#myTable tbody tr").each(function () {
+            var rowId = $(this).find('td:first').text();
+            if (rowId === idToRemove) {
+                $(this).remove();
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

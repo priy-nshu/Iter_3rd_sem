@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Listings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        #jobListings {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .jobCard {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        select {
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<label for="category">Filter by Category:</label>
+<select id="category" onchange="filterJobs()">
+    <option value="all">All Categories</option>
+    <option value="developer">Developer</option>
+    <option value="designer">Designer</option>
+    <option value="manager">Manager</option>
+    <!-- Add more job categories as needed -->
+</select>
+
+<div id="jobListings"></div>
+
+<script>
+    const jobs = [
+        { title: 'Web Developer', category: 'developer' },
+        { title: 'Graphic Designer', category: 'designer' },
+        { title: 'Project Manager', category: 'manager' },
+        // Add more job listings as needed
+    ];
+
+    function renderJobs(filterCategory) {
+        const jobListings = document.getElementById('jobListings');
+        jobListings.innerHTML = '';
+
+        jobs.forEach(job => {
+            if (filterCategory === 'all' || job.category === filterCategory) {
+                const jobCard = document.createElement('div');
+                jobCard.classList.add('jobCard');
+                jobCard.innerHTML = `<h3>${job.title}</h3><p>Category: ${job.category}</p>`;
+                jobListings.appendChild(jobCard);
+            }
+        });
+    }
+
+    function filterJobs() {
+        const selectedCategory = document.getElementById('category').value;
+        renderJobs(selectedCategory);
+    }
+
+    // Initial render with all jobs
+    renderJobs('all');
+</script>
+
+</body>
+</html>

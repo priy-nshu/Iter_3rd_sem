@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissors</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+
+        #game-container {
+            text-align: center;
+        }
+
+        #result {
+            font-size: 1.5em;
+            margin-top: 10px;
+        }
+
+        #score {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+
+        #choices {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .choice-btn {
+            cursor: pointer;
+            padding: 10px 20px;
+            font-size: 1em;
+            margin: 0 10px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            background-color: #fff;
+            transition: background-color 0.3s;
+        }
+
+        .choice-btn:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+
+<div id="game-container">
+    <h1>Rock, Paper, Scissors</h1>
+    <p id="result">Make your choice:</p>
+    <div id="choices">
+        <button class="choice-btn" onclick="playGame('rock')">Rock</button>
+        <button class="choice-btn" onclick="playGame('paper')">Paper</button>
+        <button class="choice-btn" onclick="playGame('scissors')">Scissors</button>
+    </div>
+    <p id="score">Score: <span id="user-score">0</span> - <span id="computer-score">0</span></p>
+</div>
+
+<script>
+    // Check if scores are stored in localStorage
+    const userScore = localStorage.getItem('userScore') || 0;
+    const computerScore = localStorage.getItem('computerScore') || 0;
+
+    // Update the initial score
+    document.getElementById('user-score').textContent = userScore;
+    document.getElementById('computer-score').textContent = computerScore;
+
+    function playGame(userChoice) {
+        const choices = ['rock', 'paper', 'scissors'];
+        const computerChoice = choices[Math.floor(Math.random() * 3)];
+
+        const result = getResult(userChoice, computerChoice);
+
+        document.getElementById('result').textContent = `You chose ${userChoice}. Computer chose ${computerChoice}. ${result}`;
+
+        // Update the score and store in localStorage
+        if (result.includes('Win')) {
+            localStorage.setItem('userScore', parseInt(userScore) + 1);
+            document.getElementById('user-score').textContent = parseInt(userScore) + 1;
+        } else if (result.includes('Lose')) {
+            localStorage.setItem('computerScore', parseInt(computerScore) + 1);
+            document.getElementById('computer-score').textContent = parseInt(computerScore) + 1;
+        }
+    }
+
+    function getResult(user, computer) {
+        if (user === computer) {
+            return "It's a draw!";
+        } else if (
+            (user === 'rock' && computer === 'scissors') ||
+            (user === 'paper' && computer === 'rock') ||
+            (user === 'scissors' && computer === 'paper')
+        ) {
+            return 'You Win!';
+        } else {
+            return 'You Lose!';
+        }
+    }
+</script>
+
+</body>
+</html>
