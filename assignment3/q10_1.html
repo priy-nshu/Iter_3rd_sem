@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Multi-Page Website</title>
+    <script src="script.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -75,9 +76,56 @@
 </header>
 
 <section>
-    <h2>Home Page</h2>
-    <p>This is the home page content.</p>
+    <h2>Contact Form</h2>
+    <form id="contactForm" onsubmit="validateForm(event)">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <button type="submit">Submit</button>
+
+        <div id="errorMessage" class="error-message"></div>
+    </form>
 </section>
+
+<script>
+function toggleDetails(memberId) {
+    const member = document.getElementById(memberId);
+    const expandBtn = member.querySelector('.expand-btn');
+    const expanded = member.classList.toggle('expanded');
+    expandBtn.textContent = expanded ? '-' : '+';
+}
+
+function validateForm(event) {
+    event.preventDefault();
+    
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    const errorMessage = document.getElementById('errorMessage');
+    errorMessage.innerHTML = '';
+
+    if (!name || !email || !message) {
+        errorMessage.innerHTML = 'This field is required';
+    } else if (!isValidEmail(email)) {
+        errorMessage.innerHTML = 'Please use a valid email address';
+    } else {
+        // Form submission logic (you can replace this with your actual submission code)
+        alert('Form submitted successfully!');
+    }
+}
+
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+</script>
 
 </body>
 </html>

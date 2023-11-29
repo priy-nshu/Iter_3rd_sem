@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
 </head>
 <body>
 
@@ -41,7 +42,31 @@
         const expanded = member.classList.toggle('expanded');
         expandBtn.textContent = expanded ? '-' : '+';
     }
-</script>
-
+    
+    function validateForm(event) {
+        event.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+    
+        const errorMessage = document.getElementById('errorMessage');
+        errorMessage.innerHTML = '';
+    
+        if (!name || !email || !message) {
+            errorMessage.innerHTML = 'This field is required';
+        } else if (!isValidEmail(email)) {
+            errorMessage.innerHTML = 'Please use a valid email address';
+        } else {
+            // Form submission logic (you can replace this with your actual submission code)
+            alert('Form submitted successfully!');
+        }
+    }
+    
+    function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+    </script>
 </body>
 </html>
